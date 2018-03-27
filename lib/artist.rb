@@ -4,6 +4,7 @@ class Artist
 
   attr_accessor :name
   attr_reader :songs, :genres
+
   @@all = []
 
   def initialize(name)
@@ -42,5 +43,10 @@ class Artist
     @songs.map { |song| song.genre }.uniq
   end
 
+  def add_song(name)
+    song = Song.new(name)
+    song.artist = self
+    @songs << song
+  end
 
 end
